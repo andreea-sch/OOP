@@ -3,8 +3,8 @@ using namespace std;
 
 class NumberList {
     int* numbers; // Array-ul dinamic
-    int capacity; // Capacitatea actual? a array-ului
-    int count;    // Num?rul de elemente din array
+    int capacity; // Capacitatea actuala a array-ului
+    int count;    // Numarul de elemente din array
 
 public:
     NumberList();
@@ -16,13 +16,13 @@ public:
 };
 
 NumberList::NumberList() {
-    capacity = 10; // Capacitatea ini?ial?
+    capacity = 10; // Capacitatea initiala
     numbers = new int[capacity]; // Alocare memorie pentru array
     count = 0;
 }
 
 NumberList::~NumberList() {
-    delete[] numbers; // Eliberare memorie alocat? dinamic
+    delete[] numbers; // Eliberare memorie alocata dinamic
 }
 
 void NumberList::Init() {
@@ -31,11 +31,11 @@ void NumberList::Init() {
 
 bool NumberList::Add(int x) {
     if (count >= capacity) {
-        // Redimensionarea array-ului (cre?tere)
-        int newCapacity = capacity * 2; // Dublarea capacit??ii
+        // Redimensionarea array-ului (crestere)
+        int newCapacity = capacity * 2; // Dublarea capacitatii
         int* newArray = new int[newCapacity]; // Alocare memorie pentru noul array
 
-        // Copierea elementelor existente în noul array
+        // Copierea elementelor existente Ã®n noul array
         for (int i = 0; i < capacity; i++) {
             newArray[i] = numbers[i];
         }
@@ -43,7 +43,7 @@ bool NumberList::Add(int x) {
         // Eliberarea memoriei alocate pentru array-ul vechi
         delete[] numbers;
 
-        // Actualizarea array-ului ?i a capacit??ii
+        // Actualizarea array-ului si a capacitatii
         numbers = newArray;
         capacity = newCapacity;
     }
@@ -81,18 +81,18 @@ int main() {
     NumberList list;
     list.Init();
 
-    // Ad?ugare elemente în list?
+    // Adaugare elemente Ã®n lista
     for (int i = 10; i > 0; i--) {
         list.Add(i);
     }
 
-    cout << "Lista original?: ";
+    cout << "Lista originala: ";
     list.Print();
 
     // Sortarea listei
     list.Sort();
 
-    cout << "Lista sortat?: ";
+    cout << "Lista sortata: ";
     list.Print();
 
     return 0;
